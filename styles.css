@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* ------ Colors ------ */
+    --gray: #141414;
+    --medium-gray: #1F1F1F;
+    --light-gray: #333333;
+    --green: #C4F82A;
+    --white: #FFFFFF;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
+    line-height: 1.5;
+}
+
+h1 {
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--white);
+    margin-block-end: 4px;
+}
+
+h2 {
+    font-weight: 500;
+    font-size: 0.875rem; 
+    color: var(--green);
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background-color: var(--gray);
+}
+
+.card-container {
+    max-width: 100%;
+    width: 384px;
+    padding: 40px;
+    background-color: var(--medium-gray);
+    border-radius: 12px;
+    box-shadow: 0 0 0 #fff;
+    transition: box-shadow 0.5s ease-in-out;
+}
+
+.card-container:hover {
+    box-shadow: 0 0 40px #fff9;
+}
+
+.user-data-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.875rem;
+    color: var(--white);
+}
+
+.user-data-container p {
+    margin-block: 24px;
+}
+
+.profile-picture {
+    display: block;
+    width: 88px;
+    aspect-ratio: 1;
+    border-radius: 100%;
+    margin-block-end: 24px;
+}
+
+.user-links-container ul {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-size: 0.875rem;
+}
+
+.user-links-container ul li {
+    list-style: none;
+    color: var(--white);
+    background-color: var(--light-gray);
+    text-align: center;
+    border-radius: 8px;
+}
+
+.user-link {
+    padding-block: 12px;
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: background-color 1s, color 1s;
+}
+
+.user-link:hover {
+    background-color: var(--green);
+    color: var(--light-gray);
+    transition: background-color 0.4s, color 0.4s;
+}
+
+/* ------ Animation ------ */
+.dust-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Evita que interfiera con la interacción de otros elementos */
+}
+
+.dust {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: var(--white);
+    opacity: 0.7;
+    pointer-events: none;
+    animation: dust-animation 0.5s ease-out forwards;
+}
+
+@keyframes dust-animation {
+    0% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+
+/* ------ Tablet styles ------ */
+@media screen and (max-width: 768px) {
+    .card-container {
+        width: 456px;
+    }
+}
+
+/* ------ Mobile styles ------ */
+@media screen and (max-width: 375px) {
+    .card-container {
+        width: 327px;
+    }
+}
